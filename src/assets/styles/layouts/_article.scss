@@ -1,0 +1,77 @@
+.article-container {
+  container-type: inline-size;
+}
+
+.article-container div:has(blockquote, figure)
+{
+  flex-direction: column;
+  @container (min-width: 576px) {
+    flex-direction: row;
+  }
+}
+
+article > :is(div, blockquote, p, figure) {
+  margin: 1.2rem 0.6rem;
+  @include media-breakpoint-up(lg) {
+    margin: 0 2rem;
+  }
+}
+
+article.article-container :where(h1) {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color: $light;
+  transform: translate(-50%, -50%);
+  @include media-breakpoint-up(sm) {
+    font-size: 3rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: 4.8rem;
+  }
+}
+
+.figure {
+  padding: 0;
+}
+
+.main-caption {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  width: 100%;
+  font-size: 1.3rem;
+  font-weight: bold;
+  transform: translate(-50%, -50%);
+}
+
+.article-container > div:has(ol) {
+  margin: 1vw 10vw;
+  font-weight: bolder;
+  text-align:start;
+}
+
+blockquote {
+  background-color: adjust-opacity($primary, 0.2); 
+  border-left: 8px solid $primary;
+  @include media-breakpoint-up(sm) {
+    padding: 2rem 1rem;
+    margin-left: 2rem;
+  }
+}
+
+p + figure {
+  @include media-breakpoint-up(lg) {
+    padding: 2rem 1rem;
+    margin-left: 2rem;
+}
+  }
+  
+.ordered-list  :is(li) {
+  list-style: decimal;
+}

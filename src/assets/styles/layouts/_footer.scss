@@ -1,0 +1,15 @@
+.footer {
+    padding: 1.5rem;
+    color: $secondary;
+    background-color: $primary;
+
+    &__list {
+        margin-right: 2rem;
+        font-size: 1rem;
+    }
+
+    &__link {
+        color: $light;
+        text-decoration: underline;
+    }
+}

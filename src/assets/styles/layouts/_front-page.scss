@@ -1,0 +1,116 @@
+//Estilos sin CSS grid
+.poster-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.poster-item {
+    flex-wrap: wrap;
+    width: 100vw;
+    @include media-breakpoint-up(lg) {
+        flex-wrap: nowrap;
+    }
+}
+
+.container-events {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    }
+
+.event-link {
+    font-size: 1.4rem;
+    color: $primary;
+    text-decoration: none;
+}
+
+.container-events li:has(> h3) {
+    container-type: inline-size;
+    container-name: event-notes;
+    flex-basis: calc(100% - 1.5rem);
+    padding: 10px;
+    margin: 10px;
+    @include media-breakpoint-up(md) {
+        flex-basis: calc(50% - 1.5rem);
+    }
+    @container event-notes (min-width: 600px) {
+        & > ul {
+            display: flex;
+            flex-wrap: wrap;
+        & > li {
+            flex-basis: calc(33.33% - 1.5rem);
+            align-content: center;
+            height: 6rem;
+            padding: 0 1.5rem;
+            text-align: center;
+            }
+        }
+    }
+}
+
+@supports (display: grid) {
+    //Deshacer el diseño básico para navegadores que no son compatibles con Grid
+    //Código para navegadores más nuevos, incluyendo las anulaciones.    
+    .container-events {
+        display: grid;
+        height: 100vh;
+        padding: 0;
+        --bs-rows: 4; 
+        --bs-columns: 4; 
+        --bs-gap: 0;
+        overflow: auto;
+        }
+
+    .container-events li:has(> h3) {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        }
+
+    .event {
+        &-1 {
+            @include event-card-styles(1, 1);
+        }
+        &-2 {
+            @include event-card-styles(3, 1)
+        }
+        &-3 {
+            @include event-card-styles(2, 3)
+        }
+        &-4 {
+            @include event-card-styles(4, 2)
+        }
+        &-5 {
+            @include event-card-styles(3, 4)
+        }
+        &-6 {
+            @include event-card-styles(4, 4)
+        }
+    }
+
+    .event-image {
+        &-0 {
+            display: none;
+            @include media-breakpoint-up(lg) {
+                display: block;
+                grid-area: 1 / 1 / 5 / 5;
+                background-image: url($image-background);
+                background-size: cover;
+            }
+        }
+        &-1 {
+            @include event-image-styles($image-1, $random-number-a, 1);
+        }
+        &-2 {
+            @include event-image-styles($image-2, $random-number-b, 2);
+        }
+        &-3 {
+            @include event-image-styles($image-3, $random-number-c, 3);
+        }
+        &-4 {
+            @include event-image-styles($image-4, $random-number-d, 4);
+        }
+    }
+}

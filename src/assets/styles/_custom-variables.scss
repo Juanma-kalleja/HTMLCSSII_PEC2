@@ -1,0 +1,36 @@
+@use "sass:color";
+
+// colors
+$primary:rgba(202, 13, 0, 1);
+$secondary: rgba(241, 160, 2, 1);
+$light: rgb(246, 246, 237);
+$black: rgba(49, 0, 8, 1);
+
+$base-font-family: 'Poppins', sans-serif;
+
+//Base font size
+$font-family-sans-serif: 'Nunito Sans', sans-serif;
+$font-size-base: 1.1rem;
+
+//enable CSS grid variables
+$enable-grid-classes: false;
+$enable-cssgrid: true;
+
+//Disable borde radius
+$enable-rounded: false;
+
+//Customize variables for navbar
+$navbar-padding-y: 1.3rem;
+
+//images url
+$image-background:'../images/mole.jpg';
+$image-1: '../images/aguacate.jpg';
+$image-2: '../images/limon.jpg';
+$image-3: '../images/quesadillas.jpg';
+$image-4: '../images/chile.jpg';
+
+//Generate 4 different random numbers
+$random-number-a: var(--dynamic-value-1);
+$random-number-b: var(--dynamic-value-2);
+$random-number-c: var(--dynamic-value-3);
+$random-number-d: var(--dynamic-value-4);

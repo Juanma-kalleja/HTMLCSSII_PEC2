@@ -1,0 +1,7 @@
+@function adjust-opacity($color, $opacity) {
+  @if $opacity < 0 or $opacity > 1 {
+    @error "Opacity must be between 0 and 1.";
+  }
+  // Devuelve el color con una nueva opacidad
+  @return rgba($color, $opacity);
+}

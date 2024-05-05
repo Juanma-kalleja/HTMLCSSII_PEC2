@@ -1,0 +1,45 @@
+/// Recorta texto y muestra puntos suspensivos con líneas múltiples.
+@mixin text-ellipsis ($lines: 1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  
+    @if $lines == 1 {
+      white-space: nowrap;
+    } @else {
+      white-space: inherit;
+  
+      @supports (-webkit-line-clamp: $lines) {
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: $lines;
+      }
+    }
+  }
+
+// Event cards estilos
+@mixin event-card-styles ($column, $row) {
+    background-color: $light;
+    background-size: cover;
+    @include media-breakpoint-up(lg)
+     {
+      &:hover {
+        display: block;
+        color: $light;
+        background-color: $secondary;
+    }
+        grid-row: $row;
+        grid-column: $column;
+    }
+  }
+
+// Estilos de imagenes de eventos
+@mixin event-image-styles ($url, $column, $row) {
+    display: none;
+    @include media-breakpoint-up(lg) {
+        display: block;
+        grid-row: $row;
+        grid-column-start: $column;
+        background-image: url($url);
+        background-size: cover;
+    }
+  }

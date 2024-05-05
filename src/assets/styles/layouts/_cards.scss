@@ -1,0 +1,31 @@
+.cards-container {
+  container-type: inline-size;
+}
+
+.card {
+  flex: 0 0 100%;
+  background-color: $light;
+  border: none;
+  
+  @container (min-width: 576px) {
+      flex-basis: calc(50% - $spacer);
+  }
+
+  @container (min-width: 992px) {
+      flex-basis: calc(25% - $spacer);
+
+      &-text {
+        @include text-ellipsis(3);
+      }
+
+      &:hover {
+        background-color: $secondary;
+        border: solid 3px $primary;
+      }
+  }
+
+  &-title {
+    font-weight: bold;
+    color: $primary;
+  }
+}
